@@ -11,7 +11,14 @@
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
 
 <body>
-    var buttons = document.getElementsByTagName("button");
+	<button onclick="myFunction1()">Animation1</button>
+	<button onclick="myFunction2()">Animation2</button>
+    <script>
+        //////////////////////////////////////////////////////////////////////////////////
+        //		Init
+        //////////////////////////////////////////////////////////////////////////////////
+	    
+	    var buttons = document.getElementsByTagName("button");
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", onButtonClick, false);
 };
@@ -19,13 +26,6 @@ for (let i = 0; i < buttons.length; i++) {
 function onButtonClick(event) {
   alert(event.target.id);
 }
-
-	<button onclick="myFunction1()">Animation1</button>
-	<button onclick="myFunction2()">Animation2</button>
-    <script>
-        //////////////////////////////////////////////////////////////////////////////////
-        //		Init
-        //////////////////////////////////////////////////////////////////////////////////
 	var animationNumber = 0;
 	    
 	 function myFunction1() {
