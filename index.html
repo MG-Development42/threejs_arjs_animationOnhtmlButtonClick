@@ -11,12 +11,22 @@
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
 
 <body>
-    
+    <button onclick="myFunction1()">Animation1</button>
+	<button onclick="myFunction2()">Animation2</button>
     <script>
         //////////////////////////////////////////////////////////////////////////////////
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
-
+	var animationNumber = 0;
+	    
+	 function myFunction1() {
+  			animationNumber= 1;
+		}   
+	    
+	    function myFunction2() {
+  			animationNumber= 2;
+		}
+	    
         var renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
@@ -130,7 +140,7 @@
             model = gltf.scene.children[0];
             model.name = 'Flamingo';
 
-            var animation = gltf.animations[0];
+            var animation = gltf.animations[animationNumber];
             var mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             var action = mixer.clipAction(animation);
