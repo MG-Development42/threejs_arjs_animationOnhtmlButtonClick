@@ -11,16 +11,19 @@
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
 
 <body>
-	<button onclick="myFunction1()">Animation1</button>
-	<button onclick="myFunction2()">Animation2</button>
+	
     <script>
         //////////////////////////////////////////////////////////////////////////////////
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
+	    <button onclick="myFunction1()">Animation1</button>
+	<button onclick="myFunction2()">Animation2</button>
 	    
 	    var buttons = document.getElementsByTagName("button");
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", onButtonClick, false);
+for (let i = 0; i < buttons.length; i++) 
+{
+  console.log("buttons[] " + buttons[i]);
+	buttons[i].addEventListener("click", onButtonClick, false);
 };
 
 function onButtonClick(event) {
