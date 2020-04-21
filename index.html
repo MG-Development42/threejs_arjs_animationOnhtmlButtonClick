@@ -40,7 +40,7 @@ button{
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
 	    
-	var animation,action,mixer, animations;
+	var clips,action,mixer,clip;
 	
 	    var clipnumber=0;
 	    
@@ -56,9 +56,9 @@ button{
 		 clipnumber=1;
 		 console.log("Button_Clicked "+ clipnumber);
 		 
-		 animation = animations[clipnumber];
-		 action = mixer.clipAction(animation);
-            	 action.play();
+		 clip = THREE.AnimationClip.findByName( clips, 'Dance' );
+		 action = mixer.clipAction( clip );
+		 action.play();
 		
 		}   
 	    
@@ -67,9 +67,9 @@ button{
 		clipnumber=5;
   		console.log("Button2_Clicked "+clipnumber);
 		    	
-		 animation = animations[clipnumber];
-		 action = mixer.clipAction(animation);
-            	 action.play();
+		 clip = THREE.AnimationClip.findByName( clips, 'Death' );
+		 action = mixer.clipAction( clip );
+		 action.play();
 		   	 
 		}
 	    
@@ -186,14 +186,20 @@ button{
 
         threeGLTFLoader.load("https://cors.x7.workers.dev/https://vannanmani42.github.io/threejs_arjs/RobotExpressive.glb", function (gltf) {
             model = gltf.scene;
-           // model.name = 'Flamingo';
+           
 
-            animation = gltf.animations[clipnumber];
-	    animations= gltf.animations;
-            mixer = new THREE.AnimationMixer(model);
-            mixers.push(mixer);
-            action = mixer.clipAction(animation);
-            action.play();
+            //animation = gltf.animations[clipnumber];
+	    //animations= gltf.animations;
+            //mixer = new THREE.AnimationMixer(model);
+            //mixers.push(mixer);
+            //action = mixer.clipAction(animation);
+            //action.play();
+		 mixer = new THREE.AnimationMixer( model );
+		 clips = model.animations;
+		
+		 clip = THREE.AnimationClip.findByName( clips, 'Walking' );
+		 action = mixer.clipAction( clip );
+		 action.play();
 
             root.matrixAutoUpdate = false;
             root.add(model);
@@ -217,7 +223,8 @@ button{
                    //     mixers[i].update(clock.getDelta());
                    // }
                // }
-
+		mixer.update(clock.getDelta());
+		    
                 if (!arToolkitSource.ready) {
                     return;
                 }
