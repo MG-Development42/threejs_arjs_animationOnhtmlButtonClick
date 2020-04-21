@@ -55,9 +55,11 @@ button{
   			
 		 clipnumber=1;
 		 console.log("Button_Clicked "+ clipnumber);
-		 action.reset();
 		 clip = THREE.AnimationClip.findByName( clips, 'Dance' );
 		 action = mixer.clipAction( clip );
+		 action.setLoop( THREE.LoopOnce )
+  		 action.clampWhenFinished = true
+  		 action.enable = true
 		 action.play();
 		
 		}   
@@ -66,9 +68,11 @@ button{
 		    
 		clipnumber=5;
   		console.log("Button2_Clicked "+clipnumber);
-		 action.reset();
 		 clip = THREE.AnimationClip.findByName( clips, 'Death' );
 		 action = mixer.clipAction( clip );
+		 action.setLoop( THREE.LoopOnce )
+  		 action.clampWhenFinished = true
+  		 action.enable = true
 		 action.play();
 		   	 
 		}
@@ -199,6 +203,10 @@ button{
 		clip = THREE.AnimationClip.findByName( clips, 'Walking' );
 		action = mixer.clipAction( clip );
 		console.log("Inside gltf " +clipnumber);
+		
+		 action.setLoop( THREE.LoopOnce )
+  		 action.clampWhenFinished = true
+  		 action.enable = true
 		action.play();
 
             root.matrixAutoUpdate = false;
