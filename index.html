@@ -42,6 +42,7 @@ button{
 	    
 	var animation,action,mixer, animations;
 	
+	    var clipnumber=0;
 	    
 	//var animation1button =  document.getElementById("animation1");
 	//animation1button.addEventListener("click", myFunction1,false);
@@ -52,18 +53,21 @@ button{
 	    
 	 function myFunction1(event) {
   			
-		 console.log("Button_Clicked");
+		 clipnumber=1;
+		 console.log("Button_Clicked "+ clipnumber);
 		 
-		 animation = animations[1];
+		 animation = animations[clipnumber];
 		 action = mixer.clipAction(animation);
             	 action.play();
 		
 		}   
 	    
 	    function myFunction2(event) {
-  		console.log("Button2_Clicked");
+		    
+		clipnumber=5;
+  		console.log("Button2_Clicked "+clipnumber);
 		    	
-		 animation = animations[0];
+		 animation = animations[clipnumber];
 		 action = mixer.clipAction(animation);
             	 action.play();
 		   	 
@@ -181,12 +185,12 @@ button{
         var model;
 
         threeGLTFLoader.load("https://cors.x7.workers.dev/https://vannanmani42.github.io/threejs_arjs/RobotExpressive.glb", function (gltf) {
-            model = gltf.scene.children[0];
-            model.name = 'Flamingo';
+            model = gltf.scene;
+           // model.name = 'Flamingo';
 
-             animation = gltf.animations[0];
-		animations= gltf.animations;
-             mixer = new THREE.AnimationMixer(model);
+            animation = gltf.animations[clipnumber];
+	    animations= gltf.animations;
+            mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             action = mixer.clipAction(animation);
             action.play();
