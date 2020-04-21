@@ -56,8 +56,8 @@ button{
 		 clipnumber=1;
 		 console.log("Button_Clicked "+ clipnumber);
 		 
-		 clip = THREE.AnimationClip.findByName( clips, 'Dance' );
-		 action = mixer.clipAction( clip );
+		 //clip = THREE.AnimationClip.findByName( clips, 'Dance' );
+		 action = mixer.clipAction( clips[clipnumber] );
 		 action.play();
 		
 		}   
@@ -67,8 +67,8 @@ button{
 		clipnumber=5;
   		console.log("Button2_Clicked "+clipnumber);
 		    	
-		 clip = THREE.AnimationClip.findByName( clips, 'Death' );
-		 action = mixer.clipAction( clip );
+		 //clip = THREE.AnimationClip.findByName( clips, 'Death' );
+		 action = mixer.clipAction( clips[clipnumber] );
 		 action.play();
 		   	 
 		}
@@ -189,7 +189,6 @@ button{
            
 
             //animation = gltf.animations[clipnumber];
-	    //animations= gltf.animations;
             //mixer = new THREE.AnimationMixer(model);
             //mixers.push(mixer);
             //action = mixer.clipAction(animation);
@@ -197,8 +196,9 @@ button{
 		 mixer = new THREE.AnimationMixer( model );
 		 clips = model.animations;
 		
-		 clip = THREE.AnimationClip.findByName( clips, 'Walking' );
-		 action = mixer.clipAction( clip );
+		 //clip = THREE.AnimationClip.findByName( clips, 'Walking' );
+		 action = mixer.clipAction( clips[clipnumber] );
+		console.log("Inside gltf " +clipnumber);
 		 action.play();
 
             root.matrixAutoUpdate = false;
