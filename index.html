@@ -14,20 +14,14 @@
 	<button>
      HIDE OBJECTS
     </button>	
-	<button onclick="myFunction1()">Animation1</button>
-	<button onclick="myFunction2()">Animation2</button>
+	<button id="animation1button">Animation1</button>
+	<button id="animation2button">Animation2</button>
     <script>
         //////////////////////////////////////////////////////////////////////////////////
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
 	    
-document.querySelector("button").addEventListener("click", (e)=>{
-	console.log("Button CLicked")
-})
 
-function onButtonClick(event) {
-  alert(event.target.id);
-}
 	var animationNumber = 0;
 	    
 	 function myFunction1() {
@@ -39,6 +33,9 @@ function onButtonClick(event) {
   			animationNumber= 2;
 		    alert("2");
 		}
+	    
+	    document.getElementById("animation1button").addEventListener("click", myFunction1);
+	    document.getElementById("animation2button").addEventListener("click", myFunction2);
 	    
         var renderer = new THREE.WebGLRenderer({
             antialias: true,
