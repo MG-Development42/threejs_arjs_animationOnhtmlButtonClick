@@ -32,7 +32,7 @@ button{
 <body>
 	<div style="width:100%;height:50px;text-align: center; color:white;" class="ui">Info header</div>
 	
-	<button style="top:0" id="animation1" class="ui">Animation1</button>
+	<button style="top:0" id="animation1button" class="ui">Animation1</button>
 
 	<button id="animation2button">Animation2</button>
     <script>
@@ -43,9 +43,10 @@ button{
 	var animation,action,mixer, animations;
 	
 	    
-	var animation1button =  document.getElementById("animation1");
-	animation1button.addEventListener("click", myFunction1,false);
+	//var animation1button =  document.getElementById("animation1");
+	//animation1button.addEventListener("click", myFunction1,false);
 	    
+	document.getElementById("animation1button").addEventListener("click", myFunction1,false);
 	document.getElementById("animation2button").addEventListener("click", myFunction2,false);
 	   
 	    
@@ -62,7 +63,7 @@ button{
 	    function myFunction2(event) {
   		console.log("Button2_Clicked");
 		    	
-		 animation = animations[2];
+		 animation = animations[0];
 		 action = mixer.clipAction(animation);
             	 action.play();
 		   	 
