@@ -56,9 +56,9 @@ button{
 		 clipnumber=1;
 		 console.log("Button_Clicked "+ clipnumber);
 		 clip = THREE.AnimationClip.findByName( clips, 'Dance' );
-		 action=null;
-		 action = mixer.clipAction( clip );
-		 action.play();
+		 mixer.stopAllAction();
+		 var danceaction = mixer.clipAction( clip );
+		 danceaction.play();
 		
 		}   
 	    
@@ -67,9 +67,9 @@ button{
 		clipnumber=5;
   		console.log("Button2_Clicked "+clipnumber);
 		 clip = THREE.AnimationClip.findByName( clips, 'Death' );
-		  action=null;
-		 action = mixer.clipAction( clip );
-		 action.play();
+		 mixer.stopAllAction();
+		var deathaction = mixer.clipAction( clip );
+		 deathaction.play();
 		   	 
 		}
 	    
