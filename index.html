@@ -32,9 +32,10 @@ button{
 <body>
 	<div style="width:100%;height:50px;text-align: center; color:white;" class="ui">Info header</div>
 	
-	<button style="top:0" id="animation1button" class="ui">Animation1</button>
+	<button style="top:0" id="animation1button" class="ui">Dance</button>
 
-	<button id="animation2button">Animation2</button>
+	<button style="top:200" id="animation2button" class="ui">Death</button>
+	
     <script>
         //////////////////////////////////////////////////////////////////////////////////
         //		Init
@@ -47,11 +48,11 @@ button{
 	//var animation1button =  document.getElementById("animation1");
 	//animation1button.addEventListener("click", myFunction1,false);
 	    
-	document.getElementById("animation1button").addEventListener("click", myFunction1,false);
-	document.getElementById("animation2button").addEventListener("click", myFunction2,false);
+	document.getElementById("animation1button").addEventListener("click", dancefunction,false);
+	document.getElementById("animation2button").addEventListener("click", deathfunction,false);
 	   
 	    
-	 function myFunction1(event) {
+	 function dancefunction(event) {
   			
 		 clipnumber=1;
 		 console.log("Button_Clicked "+ clipnumber);
@@ -62,7 +63,7 @@ button{
 		
 		}   
 	    
-	    function myFunction2(event) {
+	    function deathfunction(event) {
 		    
 		clipnumber=5;
   		console.log("Button2_Clicked "+clipnumber);
@@ -197,7 +198,7 @@ button{
 		 clips = gltf.animations;
 		
 		clip = THREE.AnimationClip.findByName( clips, 'Walking' );
-		action=null;
+		//action=null;
 		action = mixer.clipAction( clip );
 		console.log("Inside gltf " +clipnumber);
 		action.play();
