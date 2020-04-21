@@ -11,9 +11,7 @@
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
 
 <body>
-	<button>
-     HIDE OBJECTS
-    </button>	
+	
 	<button id="animation1button">Animation1</button>
 	<button id="animation2button">Animation2</button>
     <script>
@@ -24,18 +22,18 @@
 
 	var animationNumber = 0;
 	    
-	 function myFunction1() {
+	 function myFunction1(event) {
   			animationNumber= 1;
 		 alert("1");
 		}   
 	    
-	    function myFunction2() {
+	    function myFunction2(event) {
   			animationNumber= 2;
 		    alert("2");
 		}
 	    
-	    document.getElementById("animation1button").addEventListener("click", myFunction1);
-	    document.getElementById("animation2button").addEventListener("click", myFunction2);
+	    document.getElementById("animation1button").addEventListener("click", myFunction1,false);
+	    document.getElementById("animation2button").addEventListener("click", myFunction2,false);
 	    
         var renderer = new THREE.WebGLRenderer({
             antialias: true,
