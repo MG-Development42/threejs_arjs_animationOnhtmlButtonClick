@@ -188,19 +188,11 @@ button{
         var model;
 
         threeGLTFLoader.load("https://cors.x7.workers.dev/https://vannanmani42.github.io/threejs_arjs/RobotExpressive.glb", function (gltf) {
-            model = gltf.scene;
-           
-
-            //animation = gltf.animations[clipnumber];
-            //mixer = new THREE.AnimationMixer(model);
-            //mixers.push(mixer);
-            //action = mixer.clipAction(animation);
-            //action.play();
-		 mixer = new THREE.AnimationMixer( model );
-		 clips = gltf.animations;
-		
+            	
+		model = gltf.scene;
+		mixer = new THREE.AnimationMixer( model );
+		clips = gltf.animations;
 		clip = THREE.AnimationClip.findByName( clips, 'Walking' );
-		//action=null;
 		action = mixer.clipAction( clip );
 		console.log("Inside gltf " +clipnumber);
 		action.play();
@@ -222,12 +214,7 @@ button{
             var animate = function() {
                 requestAnimationFrame(animate);
 
-               // if (mixers.length > 0) {
-                 //   for (var i = 0; i < mixers.length; i++) {
-                   //     mixers[i].update(clock.getDelta());
-                   // }
-               // }
-		//mixer.update(clock.getDelta());
+		mixer.update(clock.getDelta());
 		    
                 if (!arToolkitSource.ready) {
                     return;
