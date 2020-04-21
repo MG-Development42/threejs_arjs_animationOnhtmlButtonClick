@@ -9,8 +9,25 @@
 <script src='https://cors.x7.workers.dev/https://vannanmani42.github.io/threejs_arjs/ar.js'></script>
 
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
+<head>
+    <style>
+        body {
+  overflow: hidden;
+  margin: 0;
+}
 
+.ui {
+  position: absolute;
+}
+
+button{
+  margin: 20px;
+}
+    </style>
+</head>
 <body>
+	<div style="width:100%;height:50px;text-align: center; color:white;" class="ui">Info header</div>
+	<button style="top:0" id="fire" class="ui">Fire</button>
 	
 	<button id="animation1button">Animation1</button>
 	<button id="animation2button">Animation2</button>
@@ -20,7 +37,13 @@
         //////////////////////////////////////////////////////////////////////////////////
 	    
 
-	var animationNumber = 0;
+	
+	    
+	  var button =  document.getElementById("fire");
+	    button.addEventListener("click", myFunction1,false);
+	    
+	    
+	    var animationNumber = 0;
 	    
 	 function myFunction1(event) {
   			animationNumber= 1;
@@ -32,7 +55,6 @@
 		    alert("2");
 		}
 	    
-	    document.getElementById("animation1button").addEventListener("click", myFunction1,false);
 	    document.getElementById("animation2button").addEventListener("click", myFunction2,false);
 	    
         var renderer = new THREE.WebGLRenderer({
