@@ -50,12 +50,17 @@ button{
 	    
 	 function myFunction1(event) {
   			animationNumber= 1;
-		 alert("1");
+		 console.log("Button_Clicked");
+		  action.stop();
+		 nextAnimation(animationNumber);
+		
 		}   
 	    
 	    function myFunction2(event) {
   			animationNumber= 2;
-		    alert("2");
+		    	action.stop();
+		 	nextAnimation(animationNumber);
+		   	 
 		}
 	    
 	    document.getElementById("animation2button").addEventListener("click", myFunction2,false);
@@ -191,6 +196,14 @@ button{
             //		render the whole thing on the page
             //////////////////////////////////////////////////////////////////////////////////
 
+	function nextAnimation(animationnumber_temp)
+		{
+			animation = gltf.animations[animationnumber_temp];
+			var action = mixer.clipAction(animation);
+            		action.play();
+
+		}
+			
             var animate = function() {
                 requestAnimationFrame(animate);
 
