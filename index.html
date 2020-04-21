@@ -39,7 +39,7 @@ button{
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
 	    
-	var animation,action,mixer;
+	var animation,action,mixer, animations;
 	
 	    
 	  var button =  document.getElementById("fire");
@@ -52,7 +52,7 @@ button{
   			animationNumber= 1;
 		 console.log("Button_Clicked");
 		 
-		 animation = gltf.animations[1];
+		 animation = animations[1];
 			action = mixer.clipAction(animation);
             		action.play();
 		
@@ -61,7 +61,7 @@ button{
 	    function myFunction2(event) {
   			animationNumber= 2;
 		    	
-		 	animation = gltf.animations[2];
+		 	animation = animations[2];
 			action = mixer.clipAction(animation);
             		action.play();
 		   	 
@@ -183,6 +183,7 @@ button{
             model.name = 'Flamingo';
 
              animation = gltf.animations[animationNumber];
+		animations= gltf.animations;
              mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
             action = mixer.clipAction(animation);
