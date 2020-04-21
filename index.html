@@ -39,7 +39,7 @@ button{
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
 	    
-
+	var animation,action,mixer;
 	
 	    
 	  var button =  document.getElementById("fire");
@@ -178,10 +178,10 @@ button{
             model = gltf.scene.children[0];
             model.name = 'Flamingo';
 
-            var animation = gltf.animations[animationNumber];
-            var mixer = new THREE.AnimationMixer(model);
+             animation = gltf.animations[animationNumber];
+             mixer = new THREE.AnimationMixer(model);
             mixers.push(mixer);
-            var action = mixer.clipAction(animation);
+            action = mixer.clipAction(animation);
             action.play();
 
             root.matrixAutoUpdate = false;
@@ -199,7 +199,7 @@ button{
 	function nextAnimation(animationnumber_temp)
 		{
 			animation = gltf.animations[animationnumber_temp];
-			var action = mixer.clipAction(animation);
+			action = mixer.clipAction(animation);
             		action.play();
 
 		}
